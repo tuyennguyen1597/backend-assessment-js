@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProductRequestDTO } from '../dto/create-product-request.dto';
-import { Product } from 'src/entities/product.entity';
+import { Product } from '../../entities/product.entity';
 import { DataSource } from 'typeorm';
 import { UpdateProductDTO } from '../dto/update-product.dto';
-import { Error } from 'src/types/error.enum';
+import { Error } from '../../types/error.enum';
 import { FindProductDTO } from '../dto/find-product.dto';
 
 @Injectable()
@@ -93,7 +93,7 @@ export class ProductRepository {
 
     async delete(productId: number) {
         const productToFind = new FindProductDTO()
-        productToFind.productId = productId.toString()
+        productToFind.productId = productId
 
         const products: Product[] = await this.find(productToFind);
 

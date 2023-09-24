@@ -8,7 +8,7 @@ import { plainToInstance } from 'class-transformer';
 import { CreateProductsRequestDTO } from './dto/create-products-request.dto';
 import { ProductRepository } from './repository/product.repository';
 import { UpdateProductDTO } from './dto/update-product.dto';
-import { ResponseResult } from 'src/shared/response/response';
+import { ResponseResult } from '../shared/response/response';
 
 @Injectable()
 export class ProductService {
@@ -37,8 +37,8 @@ export class ProductService {
 
     async insertProduct(product: CreateProductRequestDTO[]) {
         const products = await this.productRepository.insert(product[0]);
-        const detailMessges: string[] = products.map(item => `${item.title} - ${item.sku} added`)
-        return new ResponseResult(true,`${products.length} product variants are added`, detailMessges )
+        
+        return new ResponseResult(true,`Products are added successfully`)
     }
 
     async updateProduct(product: UpdateProductDTO) {

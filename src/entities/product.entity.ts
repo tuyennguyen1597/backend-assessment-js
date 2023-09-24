@@ -6,10 +6,10 @@ import { BaseEntity } from './base.entity';
 @Index('product_id_index', ['productId'])
 export class Product extends BaseEntity {
     @Column({ name: 'product_id' })
-    productId: string;
+    productId: number;
 
     @Column({ name: 'variant_id' })
-    variantId: string;
+    variantId: number;
 
     @Column()
     title: string;

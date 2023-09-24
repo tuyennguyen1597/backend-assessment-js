@@ -10,7 +10,7 @@ export class CreateProductRequestDTO {
     })
     @IsNotEmpty()
     @Expose({ name: 'id' })
-    productId: string;
+    productId: number;
 
     @ApiProperty({
         type: string,
@@ -45,7 +45,7 @@ class Variant {
         description: 'This is a required property'
     })
     @Expose({ name: 'id' })
-    variantId: string
+    variantId: number
 
     @ApiProperty({
         type: string,

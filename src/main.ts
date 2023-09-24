@@ -12,11 +12,10 @@ async function bootstrap() {
 		.setTitle('Products')
 		.setDescription('API Documentation for the Product API')
 		.setVersion('1.0')
-		.addTag('products')
 		.build();
 
 	const document = SwaggerModule.createDocument(app, config);
-	SwaggerModule.setup('swagger', app, document);
+	SwaggerModule.setup('', app, document);
 
 	app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }))
 	app.useGlobalFilters(new ErrorFilter())
