@@ -2,6 +2,8 @@
 
 Mindarc Product API repository built with [Nest](https://github.com/nestjs/nest) Framework
 
+Please check Documentation PDF to find the database credential
+
 ## Tech Stacks
 
 - NestJS
@@ -37,8 +39,6 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
 ```
 
 ## Running with docker (need to have docker)
