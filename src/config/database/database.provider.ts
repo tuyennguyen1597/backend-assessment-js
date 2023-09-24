@@ -12,6 +12,7 @@ export const databaseConfig: MysqlConnectionOptions = {
   database: process.env.DB_DATABASE,
   entities: ['dist/**/*.entity{.ts,.js}'],
   synchronize: false,
+  ssl: {}
 };
 
 export default new DataSource(databaseConfig);
