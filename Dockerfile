@@ -1,6 +1,9 @@
 FROM node:18
 
-WORKDIR /app
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+ENV TZ="Australia/Sydney"
 
 COPY package*.json ./
 
@@ -10,4 +13,5 @@ COPY . .
 
 RUN npm run build
 
-CMD [ "npm", "run", "start:dev"]
+EXPOSE 3000
+CMD [ "npm", "start" ]

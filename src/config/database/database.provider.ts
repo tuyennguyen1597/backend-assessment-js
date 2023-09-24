@@ -1,9 +1,8 @@
-import { DataSource } from 'typeorm';
-import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MySQLConnectionOptions';
+import { DataSource, DataSourceOptions } from 'typeorm';
 import * as dotenv from 'dotenv'
 dotenv.config()
 
-export const databaseConfig: MysqlConnectionOptions = {
+export const databaseConfig: DataSourceOptions = {
   type: 'mysql',
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),

@@ -1,7 +1,7 @@
 import { IsArray, IsNotEmpty, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { Expose, Type } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { string } from 'yargs';
+import { Variant } from './variant.dto';
 
 export class UpdateProductDTO {
     @ApiProperty({ name: 'id', nullable: false, example: '986075332655' })
@@ -27,20 +27,3 @@ export class UpdateProductDTO {
     variants: Variant[];
 }
 
-class Variant {
-    @ApiProperty({ name: 'id', nullable: false, example: '9510632914991' })
-    @IsNotEmpty()
-    @Expose({ name: 'id' })
-    variantId: number
-
-    @ApiProperty({ name: 'sku', nullable: true, example: '6495694.GRY~12~LN~4' })
-    @IsString()
-    @IsOptional()
-    @Expose({ name: 'sku' })
-    productCode: string;
-
-    @ApiProperty({ nullable: true, example: 'Pink'})
-    @IsString()
-    @IsOptional()
-    title: string;
-}

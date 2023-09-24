@@ -1,12 +1,14 @@
 import { IsArray, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { Expose, Type } from 'class-transformer';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { number, string } from 'yargs';
+import { Variant } from './variant.dto';
 
 export class CreateProductRequestDTO {
     @ApiProperty({
+        name: 'id',
         type: number,
-        description: 'This is a required property'
+        example: '986075332655'
     })
     @IsNotEmpty()
     @Expose({ name: 'id' })
@@ -14,53 +16,26 @@ export class CreateProductRequestDTO {
 
     @ApiProperty({
         type: string,
-        description: 'This is a required property'
+        example: '(D) HILLS LONGLINE CREW 2'
     })
     @IsString()
     @IsNotEmpty()
     title: string;
 
-    @ApiProperty({
+    @ApiPropertyOptional({
         type: string,
-        description: 'This is an optional property'
+        example: 'color|grey, season|04'
     })
     @IsOptional()
     @IsString()
     tags: string;
 
     @ApiProperty({
-        type: [],
-        description: 'This is a required property'
+        type: () => Variant, isArray: true 
     })
     @IsArray()
     @IsNotEmpty()
     @Type(() => Variant)
     @ValidateNested({ each: true })
     variants: Variant[];
-}
-
-class Variant {
-    @ApiProperty({
-        type: number,
-        description: 'This is a required property'
-    })
-    @Expose({ name: 'id' })
-    variantId: number
-
-    @ApiProperty({
-        type: string,
-        description: 'This is a required property'
-    })
-    @IsString()
-    @IsNotEmpty()
-    @Expose({ name: 'sku' })
-    productCode: string;
-
-    @ApiProperty({
-        type: string,
-        description: 'This is a required property'
-    })
-    @IsString()
-    @IsNotEmpty()
-    title: string;
 }
