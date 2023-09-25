@@ -1,3 +1,6 @@
+I have mistakenly created a feature branch in mindarc repository. That why I did migrated to here 
+https://github.com/mindarc/backend-assessment-js/compare/master...tuyennguyen1597:feat/jade-nguyen?expand=1
+
 ## Description
 
 Mindarc Product API repository built with [Nest](https://github.com/nestjs/nest) Framework
@@ -40,6 +43,10 @@ $ npm run start
 $ npm run start:dev
 
 ```
+
+
+## Change credential in the .ENV file
+The credential is provided in the PDF file
 
 ## Running with docker (need to have docker)
 
